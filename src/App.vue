@@ -29,6 +29,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 550px;
+    min-height: 550px;
+    padding: 30px;
   }
 </style>

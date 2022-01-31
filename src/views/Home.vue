@@ -1,12 +1,17 @@
 <template>
   <div id="container-principal">
-    <h1>Tarefas</h1>
+    <TaskContainer />
   </div>
 </template>
 
 <script>
+import TaskContainer from "../components/TaskContainer.vue"
+
 export default {
   name: 'Home',
+  components: {
+    TaskContainer
+  }
 }
 </script>
 

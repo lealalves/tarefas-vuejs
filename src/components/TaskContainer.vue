@@ -30,5 +30,6 @@ export default {
         border-radius: 10px;
         color: honeydew;
         padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 </style>

@@ -24,6 +24,9 @@ export default {
         background-color: #222;
         color: aliceblue;
     }
+    #header h1{
+        margin-left: 40px;
+    }
     #header ul{
         display: flex;
         list-style: none;

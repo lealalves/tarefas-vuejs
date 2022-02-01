@@ -1,7 +1,6 @@
 <template>    
     <form id="form-input" @submit="addTask($event)">
-        <h1>tarefa:</h1>
-        <input type="text" name="task" id="task-input" v-model="task">
+        <input type="text" name="task" id="task-input" v-model="task" placeholder="O que está pensando?">
         <input type="submit" id="task-btn" value="Adicionar">
     </form>
 </template>
@@ -18,20 +17,27 @@ export default {
         async addTask(e) {
             e.preventDefault()
 
-            const data = {
-                descricao: this.task,
-                status: false
-            }
+            if(this.task != null){
 
-            const dataJson = JSON.stringify(data)
-            
-            const req = await fetch('http://localhost:3000/tarefas', {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: dataJson
-            })
+                const data = {
+                    descricao: this.task,
+                    status: false
+                }
+    
+                const dataJson = JSON.stringify(data)
+                
+                const req = await fetch('http://localhost:3000/tarefas', {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: dataJson
+                })
+    
+                const res = await req.json()
+    
+                this.task = null
 
-            const res = await req.json()
+            }else alert('escreva alguma coisa bobao')
+
 
         }
     }
@@ -44,16 +50,17 @@ export default {
         width: 100%;
         height: 50px;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
     }
     #task-input{
         height: 30px;
         padding: 10px;
         border: none;
-        caret-color: indianred;
-        color: whitesmoke;
+        color: rgb(0, 0, 0);
         background-color: white;
         border-radius: 10px;
+        margin-left: 10px;
+        width: 300px;
     }
     #task-btn{
         width: auto;
@@ -64,6 +71,8 @@ export default {
         font-weight: bold;
         border-radius: 10px;
         transition: .5s;
+        margin-left: 10px;
+        cursor: pointer;
     }
     #task-btn:hover{
         background-color: transparent;

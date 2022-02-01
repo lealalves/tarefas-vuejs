@@ -8,6 +8,7 @@
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 
+
 export default {
   name: 'App',
   components: {
@@ -31,5 +32,6 @@ export default {
     justify-content: center;
     min-height: 550px;
     padding: 30px;
+    background-color: aliceblue;
   }
 </style>

@@ -65,8 +65,8 @@ export default {
     #task-btn{
         width: auto;
         padding: 10px;
-        border: 1px solid white;
-        background-color: white;
+        border: 1px solid whitesmoke;
+        background-color: whitesmoke;
         color: black;
         font-weight: bold;
         border-radius: 10px;

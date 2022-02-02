@@ -1,29 +1,9 @@
 {
   "tarefas": [
     {
-      "descricao": "teste",
-      "status": false,
-      "id": 2
-    },
-    {
-      "descricao": "lavar a louça",
-      "status": false,
-      "id": 3
-    },
-    {
-      "descricao": "auihdiquwdnqw",
-      "status": false,
-      "id": 6
-    },
-    {
-      "descricao": "preciso ir para academia",
-      "status": false,
-      "id": 9
-    },
-    {
-      "descricao": "preciso estudar vuejs",
-      "status": false,
-      "id": 16
+      "descricao": "estudar para passar na fatec!",
+      "status": true,
+      "id": 1
     }
   ]
 }

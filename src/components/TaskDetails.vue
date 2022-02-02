@@ -7,7 +7,7 @@
             </div>
             <h3>Descrição</h3>
             <textarea v-model="task_desc_data" :placeholder="task_desc" id="task-details-text" cols="30" rows="10"></textarea>
-            <Button msg="Salvar" @click="setTaskDesc"/>
+            <Button v-show="valid_desc" msg="Salvar" @click="setTaskDesc"/>
         </div>      
     </div>
 </template>
@@ -27,24 +27,27 @@ export default {
     },
     data() {
         return {
-            task_desc_data: 'Insira uma descrição sobre a tarefa!'
+            task_desc_data: null,
+            valid_desc: false
         }
     },
     methods: {
         async setTaskDesc() {
-            if(this.task_desc_data != null){
-                const dataJson = JSON.stringify({descricao: this.task_desc_data})
-    
-                const req = await fetch(`http://localhost:3000/tarefas/${this.task_id}`, {
-                    method: "PATCH",
-                    headers: {'Content-Type' : 'application/json'},
-                    body: dataJson
-                })
 
-                alert('descrição salva!')
+            const dataJson = JSON.stringify({descricao: this.task_desc_data})
 
-            }else alert('bota a descrição ai')
+            const req = await fetch(`http://localhost:3000/tarefas/${this.task_id}`, {
+                method: "PATCH",
+                headers: {'Content-Type' : 'application/json'},
+                body: dataJson
+            })
 
+            alert('descrição salva!')
+        }
+    },
+    watch: {
+        task_desc_data (text) {
+            text != "" ? this.valid_desc = !false : this.valid_desc = !true
         }
     }
 }

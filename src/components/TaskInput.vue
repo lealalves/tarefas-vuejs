@@ -1,6 +1,6 @@
 <template>    
     <form id="form-input" @submit="addTask($event)">
-        <input type="text" name="task" id="task-input" v-model="task" placeholder="O que está pensando?">
+        <input type="text" name="task" id="task-input" :class="{error: this.error}" v-model="task" placeholder="O que está pensando?">
         <Button msg="Adicionar"/>
     </form>
 </template>
@@ -16,7 +16,8 @@ export default {
     },
     data(){
         return {
-            task: null
+            task: null,
+            error: false
         }
     },
     methods: {
@@ -28,7 +29,7 @@ export default {
                 const data = {
                     nome: this.task,
                     status: false,
-                    descricao: ""
+                    descricao: "Insira uma descrição sobre a tarefa!"
                 }
     
                 const dataJson = JSON.stringify(data)
@@ -43,7 +44,12 @@ export default {
     
                 this.task = null
 
-            }else alert('escreva alguma coisa')
+            }else {
+                this.error = true
+                setInterval(() => {
+                    this.error = false
+                }, 3000);
+            }
 
 
         }
@@ -64,9 +70,23 @@ export default {
         padding: 10px;
         border: none;
         color: rgb(0, 0, 0);
+        border: 2px solid white;
         background-color: white;
+        box-shadow: 0 0 0 transparent;
         border-radius: 10px;
         margin-left: 10px;
         width: 300px;
+        transition: .2s;
+    }
+    #task-input.error{
+        box-shadow: 0 0 0.5em red;
+        animation: shake 0.2s ease-in-out 0s 2;
+    }
+
+    @keyframes shake {
+    0% { margin-left: 0rem; }
+    25% { margin-left: 0.5rem; }
+    75% { margin-left: -0.5rem; }
+    100% { margin-left: 0rem; }
     }
 </style>

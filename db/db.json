@@ -1,9 +1,9 @@
 {
   "tarefas": [
     {
-      "nome": "limpar o meu quarto",
+      "nome": "lavar a louça",
       "status": true,
-      "descricao": "Insira uma descrição sobre a tarefa!",
+      "descricao": "lavar e secar toda a louça",
       "id": 1
     }
   ]

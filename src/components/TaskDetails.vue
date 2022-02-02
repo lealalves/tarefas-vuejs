@@ -8,17 +8,20 @@
             <h3>Descrição</h3>
             <textarea v-model="task_desc_data" :placeholder="task_desc" id="task-details-text" cols="30" rows="10"></textarea>
             <Button v-show="valid_desc" msg="Salvar" @click="setTaskDesc"/>
-        </div>      
+            <Message :msg="msg" v-show="msg"/>
+        </div>
     </div>
 </template>
 
 <script>
 import Button from './Button.vue'
+import Message from './Message.vue'
 
 export default {
     name: 'TaskDetails',
     components: {
-        Button
+        Button,
+        Message
     },
     props: {
         task_id: String,
@@ -28,7 +31,8 @@ export default {
     data() {
         return {
             task_desc_data: null,
-            valid_desc: false
+            valid_desc: false,
+            msg: null
         }
     },
     methods: {
@@ -42,7 +46,10 @@ export default {
                 body: dataJson
             })
 
-            alert('descrição salva!')
+            this.msg = "Descrição salva com sucesso!"
+            setInterval(() => {
+                this.msg = ""
+            }, 3000);
         }
     },
     watch: {

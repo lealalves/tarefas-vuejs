@@ -1,13 +1,19 @@
 <template>    
     <form id="form-input" @submit="addTask($event)">
         <input type="text" name="task" id="task-input" v-model="task" placeholder="O que está pensando?">
-        <input type="submit" id="task-btn" value="Adicionar">
+        <Button msg="Adicionar"/>
     </form>
 </template>
 
 <script>
+import Button from './Button.vue'
+
+
 export default {
     name: 'TaskInput',
+    components: {
+        Button
+    },
     data(){
         return {
             task: null
@@ -20,8 +26,9 @@ export default {
             if(this.task != null){
 
                 const data = {
-                    descricao: this.task,
-                    status: false
+                    nome: this.task,
+                    status: false,
+                    descricao: ""
                 }
     
                 const dataJson = JSON.stringify(data)
@@ -36,7 +43,7 @@ export default {
     
                 this.task = null
 
-            }else alert('escreva alguma coisa bobao')
+            }else alert('escreva alguma coisa')
 
 
         }
@@ -61,21 +68,5 @@ export default {
         border-radius: 10px;
         margin-left: 10px;
         width: 300px;
-    }
-    #task-btn{
-        width: auto;
-        padding: 10px;
-        border: 1px solid whitesmoke;
-        background-color: whitesmoke;
-        color: black;
-        font-weight: bold;
-        border-radius: 10px;
-        transition: .5s;
-        margin-left: 10px;
-        cursor: pointer;
-    }
-    #task-btn:hover{
-        background-color: transparent;
-        color: white;
     }
 </style>

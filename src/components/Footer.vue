@@ -1,6 +1,6 @@
 <template>
     <div id="footer">
-        <h1>made by leal</h1>
+        <h1>feito por leal. Vue.js + JSON Server </h1>
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
         background-color: #222;
         color: whitesmoke;
         bottom: 0;
-        font-size: 10px;
+        font-size: 7px;
         font-style: italic;
     }
 </style>

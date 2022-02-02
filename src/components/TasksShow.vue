@@ -1,8 +1,17 @@
 <template>
-    <div id="tasks-show" :class="{feita: task.status}" v-for="task in tasks" :key="task.id" @click="updateTask(task.status, task.id)">
-        <p>{{task.descricao}}</p>
+    <div id="tasks-show" :class="{feita: task.status}" v-for="task in tasks" :key="task.id">
+        <p @click="updateTask(task.status, task.id)">{{task.nome}}</p>
         <font-awesome-icon icon="trash-alt" style="color: #222;" id="fontawesome-icon" @click="removeTask(task.id)"/>
-        <font-awesome-icon icon="edit" style="color: #222;" id="fontawesome-icon"/>
+        <router-link :to=" {
+            name: 'Detalhes', 
+            params: {
+                task_id: task.id,
+                task_name: task.nome,
+                task_desc: task.descricao
+                }
+            }">
+            <font-awesome-icon icon="edit" style="color: #222;" id="fontawesome-icon"/>
+        </router-link>
     </div>
 </template>
 
@@ -49,7 +58,7 @@ export default {
                 body: dataJson
             })
 
-        }
+        },
     },
     mounted() {
         setInterval(() => {
@@ -62,26 +71,27 @@ export default {
 <style scoped>
     #tasks-show{
         display: flex;
-        margin-top: 10px;
-        padding: 10px;
+        align-items: center;
+        margin-top: 10px;        
         border: 1px solid whitesmoke;
         background-color: whitesmoke;
         border-radius: 10px;
         cursor: pointer;
         transition: .5s;
+        padding: 5px;
     }
     #tasks-show.feita{
-        border-bottom: 5px solid greenyellow;
-        border-top: 5px solid greenyellow;
+        border-left: 10px solid rgb(47, 255, 116);
     }
     #tasks-show p{
         max-width: 500px;
         color: black;
         font-weight: bold;
         word-wrap: break-word;
+        padding: 5px;        
     }
     #fontawesome-icon{
-        margin-left: 10px;
+        margin-left: 5px;
         cursor: pointer;
     }
 </style>

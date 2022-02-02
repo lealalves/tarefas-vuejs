@@ -1,19 +1,8 @@
-# tarefas
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
+### Para compilar:
 ```
 npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+npm run backend
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+![tela inicial] (https://prnt.sc/26nj7j7)

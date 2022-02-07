@@ -10,7 +10,7 @@
 *Adicionando uma tarefa.*
 
 
-![ss3](./screenshots/ss4.png)<br>
+![ss3](./screenshots/ss3.png)<br>
 *Adicionando uma descrição a tarefa.*
 
 

@@ -3,10 +3,10 @@
   
 # Screenshots
 ![ss1](./screenshots/ss1.png)<br>
-Ao abrir pela primeira vez.
+*Ao abrir pela primeira vez.*
 ![ss2](./screenshots/ss2.png)<br>
-Adicionando uma tarefa.
+*Adicionando uma tarefa.*
 ![ss3](./screenshots/ss4.png)<br>
-Adicionando uma descrição a tarefa.
+*Adicionando uma descrição a tarefa.*
 ![ss4](./screenshots/ss4.png)<br>
-Marcando a tarefa como concluída.
+*Marcando a tarefa como concluída.*
